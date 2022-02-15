@@ -1,0 +1,45 @@
+public class Main{
+
+public static int decimalTobinary(int n){
+     
+     // devimal to binary conversion 
+    int res=0;
+    int mult=1;
+    while(n>0){
+        int rem=n%2;
+        n=n/2;
+        res=res+ rem*mult;
+
+        mult=mult*10;
+    }
+    return res;
+}
+public static void main(String[] args) throws Exception {
+    Scanner scn=new Scanner(System.in);
+    int n=scn.nextInt();
+    int[] arr = new int[n];
+    for(int i=0;i<n;i++){
+        arr [i]=scn.nextInt();
+    }
+    int totalSubset = (int)Math.pow(2,n);
+    for(int dec=0;dec<totalSubset;dec++){
+
+        int binaryNo=decimalTobinary(dec);
+
+        int power =(int)Math.pow(10,n-1);    
+    // covert binary no. to equivalent subset
+
+    for(int i=0;i<n;i++){
+        int bit=(binaryNo / power) % 10;
+        if(bit == 1){
+            System.out.print(arr[i] + "\t");
+          }  else {
+            System.out.print("-\t");
+        }
+        power=power/10;
+      }
+       System.out.println();    
+ }
+
+}
+}
