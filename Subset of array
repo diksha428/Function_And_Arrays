@@ -39,7 +39,6 @@ public static void main(String[] args) throws Exception {
         power=power/10;
       }
        System.out.println();    
+  }
  }
-
-}
 }
